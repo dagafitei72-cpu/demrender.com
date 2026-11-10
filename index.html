@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>DemRender — turn your song into a music video</title>
+  <meta name="description" content="DemRender is a free music visualizer studio for Windows: 121 audio-reactive visualizers, a full creator and fast export up to 4K — vertical, square or widescreen. No account, no watermark.">
+  <link rel="canonical" href="https://demrender.com/">
+  <meta name="theme-color" content="#06090f">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DemRender">
+  <meta property="og:title" content="DemRender — turn your song into a music video">
+  <meta property="og:description" content="121 audio-reactive visualizers, a full creator and fast export up to 4K. Free for Windows.">
+  <meta property="og:url" content="https://demrender.com/">
+  <meta property="og:image" content="https://demrender.com/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=1">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DemRender",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Windows 10, Windows 11",
+    "description": "Music visualizer studio: audio-reactive visualizers, a full creator and video export up to 4K.",
+    "url": "https://demrender.com/",
+    "image": "https://demrender.com/assets/img/og.jpg",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "Dandem", "email": "contact@demrender.com" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top" id="top">
+    <div class="wrap top-in">
+      <a class="brand" href="#top" aria-label="DemRender — home">
+        <img src="/assets/img/logo-mark.png" alt="" width="120" height="60" class="brand-mark">
+        <img src="/assets/img/wordmark.png" alt="DemRender" width="320" height="56" class="brand-word">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#visualizers">Visualizers</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-sm btn-primary dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl>Download</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================================================================ hero -->
+    <section class="hero">
+      <div class="wrap hero-in">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span>Music visualizer studio for Windows · Free</p>
+          <h1>Turn your song into a&nbsp;<span class="grad">music video.</span></h1>
+          <p class="lead">Pick one of 121 audio-reactive visualizers, drop in your track and cover, and export a video that moves with every beat — widescreen,
+            vertical or square, up to 4K. No account, no watermark, no upload.</p>
+          <div class="cta">
+            <a class="btn btn-primary btn-lg dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+              Download for Windows
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#visualizers">Watch the visualizers</a>
+          </div>
+          <p class="dl-info" data-info>Free · Windows 10 and 11 (64-bit)</p>
+        </div>
+        <div class="hero-stage">
+          <div class="player" id="heroPlayer">
+            <video id="heroVideo" src="/assets/media/flame-wings.mp4" poster="/assets/media/flame-wings.jpg" muted loop playsinline preload="auto" aria-label="Flame Wings visualizer, exported from DemRender"></video>
+            <button class="sound" id="heroSound" type="button" aria-pressed="false" title="Sound on">
+              <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6m0-6-4 6"/></svg>
+              <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+              <span>Sound</span>
+            </button>
+            <span class="tag">Flame Wings · made in DemRender</span>
+          </div>
+        </div>
+      </div>
+      <ul class="wrap stats" aria-label="DemRender at a glance">
+        <li><b>121</b><span>visualizers</span></li>
+        <li><b>4K · 60 fps</b><span>export</span></li>
+        <li><b>16:9 · 9:16 · 1:1 · 4:5</b><span>every platform</span></li>
+        <li><b>Real time</b><span>GPU export speed</span></li>
+        <li><b>Offline</b><span>your music stays with you</span></li>
+      </ul>
+    </section>
+
+    <!-- ========================================================== gallery -->
+    <section class="section" id="visualizers">
+      <div class="wrap">
+        <p class="eyebrow">Made in DemRender</p>
+        <h2>Every frame driven by the music.</h2>
+        <p class="sub">These clips were exported straight from DemRender, on its own demo tracks. Point at one to see it move — click for sound.</p>
+        <div class="gallery" id="gallery">
+          <button class="clip" data-clip="pro-neon-halo" data-name="Neon Halo" data-family="Featured"></button>
+          <button class="clip" data-clip="plasma-tendrils" data-name="Plasma Tendrils" data-family="Burst"></button>
+          <button class="clip" data-clip="solar-flares" data-name="Solar Flares" data-family="Burst"></button>
+          <button class="clip" data-clip="teal-ears" data-name="Teal Ears" data-family="Spectrum blobs"></button>
+          <button class="clip" data-clip="halo-crown" data-name="Halo Crown" data-family="Halo shapes"></button>
+          <button class="clip" data-clip="lightning-halo" data-name="Lightning Halo" data-family="Burst"></button>
+          <button class="clip" data-clip="supernova" data-name="Supernova" data-family="Burst"></button>
+          <button class="clip" data-clip="vital-signs" data-name="Vital Signs" data-family="Worlds"></button>
+          <button class="clip" data-clip="double-helix" data-name="Double Helix" data-family="Worlds"></button>
+        </div>
+        <p class="more">…and 112 more, from neon line art to cinematic GPU scenes. Every one of them can be changed down to the last setting.</p>
+      </div>
+    </section>
+
+    <!-- ========================================================= features -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="feature">
+          <div class="feature-copy">
+            <p class="eyebrow">The library</p>
+            <h2>121 visualizers. Ten families.</h2>
+            <p>Effects that erupt out of your cover, neon halo shapes, spectrum blobs in the style of the big music channels, line-art worlds and cinematic
+              scenes rendered on the graphics card. Point at one to see it move, open it for a full preview with music, and use it in one click.</p>
+            <ul class="ticks">
+              <li>Preview every look with your own song before you choose</li>
+              <li>Keep your tuned settings as <b>My Looks</b> — your own presets</li>
+              <li>Nothing moves in silence: the effects grow out of the sound</li>
+            </ul>
+          </div>
+          <figure class="shot"><img src="/assets/shots/app-library.webp" width="2400" height="1328" loading="lazy" alt="The DemRender visualizer library, showing the Burst family"></figure>
+        </div>
+
+        <div class="feature flip">
+          <div class="feature-copy">
+            <p class="eyebrow">The creator</p>
+            <h2>A full studio underneath.</h2>
+            <p>Every visualizer is built from layers you can open and change: GPU scenes, spectrum and waveforms, particles, shapes, your cover and animated text.
+              Make any setting follow the bass, the beat or the vocals — or draw it on the timeline.</p>
+            <ul class="ticks">
+              <li>Colours taken from your cover in one click</li>
+              <li>Effects on the beat: zoom, shake, RGB split, glitch, ripple</li>
+              <li>Animated titles and lyrics you sync by tapping along</li>
+              <li>An image catalog of original covers and backdrops, free to publish</li>
+              <li>Full undo history, autosave and crash recovery</li>
+            </ul>
+          </div>
+          <figure class="shot"><img src="/assets/shots/app-creator-scene.webp" width="2400" height="1328" loading="lazy" alt="The DemRender creator with the Neon Halo visualizer and its settings"></figure>
+        </div>
+
+        <div class="feature">
+          <div class="feature-copy">
+            <p class="eyebrow">Export</p>
+            <h2>Export fast. Post everywhere.</h2>
+            <p>MP4 goes straight from the graphics card to the video encoder — on a recent PC a 1080p60 song exports about as fast as it plays. Choose the shape
+              for each platform and the visualizer, the cover and the text rearrange themselves.</p>
+            <ul class="ticks">
+              <li>16:9 for YouTube · 9:16 for Shorts, Reels and TikTok · 1:1 · 4:5</li>
+              <li>Up to 4K at 60 fps · MP4, WebM, or ProRes for editing</li>
+              <li>Keep working in another tab while it renders — a chime tells you when it's done</li>
+            </ul>
+          </div>
+          <div class="export-visual">
+            <figure class="shot"><img src="/assets/shots/app-export.webp" width="2400" height="1328" loading="lazy" alt="The DemRender export window"></figure>
+            <div class="phone" aria-hidden="true">
+              <video src="/assets/media/vertical-flame-wings.mp4" poster="/assets/media/vertical-flame-wings.jpg" muted loop playsinline preload="none" data-auto></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== how it works -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <p class="eyebrow">How it works</p>
+        <h2>From track to video in three steps.</h2>
+        <ol class="steps">
+          <li><span class="n">1</span><h3>Pick a look</h3><p>Browse the library and preview any visualizer with your song.</p></li>
+          <li><span class="n">2</span><h3>Make it yours</h3><p>Add your cover, title and colours. Change as little or as much as you like.</p></li>
+          <li><span class="n">3</span><h3>Export and post</h3><p>Choose the format for your platform and render. Your video is ready to upload.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================= free -->
+    <section class="section">
+      <div class="wrap">
+        <div class="free">
+          <div>
+            <p class="eyebrow">Free, and yours</p>
+            <h2>Your videos belong to you.</h2>
+            <p>DemRender is free to use, at home or at work. The videos you make are yours: publish and monetise them on YouTube, TikTok, Instagram or
+              Spotify Canvas, no credit required. No account, no watermark — and your songs never leave your computer.</p>
+          </div>
+          <ul class="badges">
+            <li>No watermark</li><li>No account</li><li>No upload</li><li>Automatic updates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== faq -->
+    <section class="section" id="faq">
+      <div class="wrap narrow">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions and answers.</h2>
+        <div class="faq">
+          <details><summary>Is DemRender really free?</summary>
+            <p>Yes. The whole app — every visualizer, the creator and export up to 4K — is free. We may add an optional Pro edition later; what is free today stays free.</p></details>
+          <details><summary>Is there a watermark?</summary>
+            <p>No. Your videos come out exactly as you made them.</p></details>
+          <details><summary>Can I monetise the videos I make?</summary>
+            <p>Yes. The videos are yours, and DemRender's visualizers and catalog pictures are free to use in them, including on monetised channels. You need the rights
+              to the music and pictures you bring yourself — your own tracks, or ones you have a licence for.</p></details>
+          <details><summary>What do I need to run it?</summary>
+            <p>Windows 10 or 11 (64-bit), 8 GB of memory and a graphics card from the last few years with up-to-date drivers. For 4K and 60 fps a dedicated graphics card
+              is recommended. About 450 MB of disk space.</p></details>
+          <details><summary>Windows says “Windows protected your PC” when I run the installer.</summary>
+            <p>DemRender is new and its installer does not carry a code-signing certificate yet, so Windows SmartScreen may warn about it. Click <b>More info</b> and then
+              <b>Run anyway</b>. Download DemRender only from this page or from our <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases">GitHub releases</a>.</p></details>
+          <details><summary>Is there a version for Mac or Linux?</summary>
+            <p>Not yet — DemRender runs on Windows for now.</p></details>
+          <details><summary>How do updates work?</summary>
+            <p>DemRender looks for a new version when it starts and downloads it in the background. When it's ready, a <b>Restart to update</b> button appears — or it simply
+              installs the next time you close the app.</p></details>
+          <details><summary>Is my music uploaded anywhere?</summary>
+            <p>No. Everything happens on your computer: your songs, pictures and projects never leave it. The only thing DemRender asks the internet is whether a new
+              version exists.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== contact -->
+    <section class="section" id="contact">
+      <div class="wrap narrow">
+        <div class="contact">
+          <h2>Questions, ideas, a bug?</h2>
+          <p>Write to us — we read everything, and ideas for new visualizers are very welcome.</p>
+          <div class="cta center">
+            <a class="btn btn-primary btn-lg" href="mailto:contact@demrender.com?subject=DemRender">contact@demrender.com</a>
+            <a class="btn btn-ghost btn-lg" href="mailto:contact@demrender.com?subject=DemRender%20%E2%80%94%20problem&amp;body=What%20happened%3A%0A%0A%0AWhat%20you%20expected%3A%0A%0A%0AYour%20DemRender%20version%20(About%2C%20the%20%E2%93%98%20button)%3A%0A">Report a problem</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="/assets/img/logo-mark.png" alt="" width="60" height="30">
+        <span>© 2026 Dandem · DemRender is freeware</span>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/legal.html">Licence &amp; privacy</a>
+        <a href="/legal.html#open-source">Open-source notices</a>
+        <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases">All releases</a>
+        <a href="https://dem-work.com">More apps by Dandem</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- the player for a clip with sound -->
+  <dialog class="lightbox" id="lightbox" aria-label="Visualizer clip">
+    <div class="lb-in">
+      <video id="lbVideo" controls playsinline></video>
+      <div class="lb-bar"><span id="lbName"></span><button class="lb-close" id="lbClose" type="button" aria-label="Close">×</button></div>
+    </div>
+  </dialog>
+
+  <script src="/assets/site.js?v=1"></script>
+</body>
+</html>
