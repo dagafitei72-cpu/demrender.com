@@ -6,21 +6,28 @@
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ------------------------------------------------ download: newest installer */
+  // The big button offers the visitor's own system; the line under it offers the other one.
   function mb(n) { return Math.round(n / 1048576) + ' MB'; }
+  var ua = navigator.userAgent || '';
+  var forced = /[?&]os=(linux|windows)\b/i.exec(location.search);   // demrender.com/?os=linux links straight to the AppImage
+  var onLinux = forced ? forced[1].toLowerCase() === 'linux'
+    : /Linux|X11/.test(navigator.platform || ua) && !/Android|CrOS/i.test(ua);
+  var OS = {
+    win: { label: 'Download for Windows', alt: 'Windows', req: 'Windows 10 and 11 (64-bit)', test: /^DemRender-Setup-.*\.exe$/i },
+    linux: { label: 'Download for Linux', alt: 'Linux (AppImage)', req: 'Linux AppImage (64-bit)', test: /^DemRender-.*\.AppImage$/i },
+  };
+  function setAll(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
   fetch('https://api.github.com/repos/' + REPO + '/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (rel) {
       if (!rel || !rel.assets) return;
-      var setup = rel.assets.filter(function (a) { return /^DemRender-Setup-.*\.exe$/i.test(a.name); })[0];
-      // Linux: shown only once a release carries an AppImage
-      var appimg = rel.assets.filter(function (a) { return /^DemRender-.*\.AppImage$/i.test(a.name); })[0];
-      if (appimg) {
-        document.querySelectorAll('[data-dl-linux]').forEach(function (a) { a.href = appimg.browser_download_url; });
-        document.querySelectorAll('[data-linux-size]').forEach(function (s) { s.textContent = ' · ' + mb(appimg.size); });
-        document.querySelectorAll('[data-linux]').forEach(function (p) { p.hidden = false; });
-      }
-      if (!setup) return;
-      document.querySelectorAll('[data-dl]').forEach(function (a) { a.href = setup.browser_download_url; });
+      var find = function (os) { return rel.assets.filter(function (a) { return OS[os].test.test(a.name); })[0]; };
+      var files = { win: find('win'), linux: find('linux') };
+      var main = onLinux && files.linux ? 'linux' : 'win';
+      var other = main === 'win' ? 'linux' : 'win';
+      if (!files[main]) return;
+      setAll('[data-dl]', function (a) { a.href = files[main].browser_download_url; });
+      setAll('[data-dl-label]', function (s) { s.textContent = OS[main].label; });
       var date = new Date(rel.published_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
       var info = document.querySelector('[data-info]');
       if (info) {
@@ -28,7 +35,13 @@
         var b = document.createElement('b');
         b.textContent = 'Version ' + String(rel.tag_name).replace(/^v/, '');
         info.appendChild(b);
-        info.appendChild(document.createTextNode(' · ' + mb(setup.size) + ' · ' + date + ' · Free · Windows 10 and 11 (64-bit)'));
+        info.appendChild(document.createTextNode(' · ' + mb(files[main].size) + ' · ' + date + ' · Free · ' + OS[main].req));
+      }
+      // the other system, under the button (only when the release carries it)
+      if (files[other]) {
+        setAll('[data-dl-alt]', function (a) { a.href = files[other].browser_download_url; a.textContent = OS[other].alt; });
+        setAll('[data-alt-size]', function (s) { s.textContent = ' · ' + mb(files[other].size); });
+        setAll('[data-alt]', function (p) { p.hidden = false; });
       }
     })
     .catch(function () { /* offline or rate-limited: the links keep pointing at the releases page */ });

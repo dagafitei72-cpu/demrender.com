@@ -6,13 +6,13 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>DemRender — turn your song into a music video</title>
-  <meta name="description" content="DemRender is a free music visualizer studio for Windows: 121 audio-reactive visualizers, a full creator and fast export up to 4K — vertical, square or widescreen. No account, no watermark.">
+  <meta name="description" content="DemRender is a free music visualizer studio for Windows and Linux: 121 audio-reactive visualizers, a full creator and fast export up to 4K — vertical, square or widescreen. No account, no watermark.">
   <link rel="canonical" href="https://demrender.com/">
   <meta name="theme-color" content="#06090f">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DemRender">
   <meta property="og:title" content="DemRender — turn your song into a music video">
-  <meta property="og:description" content="121 audio-reactive visualizers, a full creator and fast export up to 4K. Free for Windows.">
+  <meta property="og:description" content="121 audio-reactive visualizers, a full creator and fast export up to 4K. Free for Windows and Linux.">
   <meta property="og:url" content="https://demrender.com/">
   <meta property="og:image" content="https://demrender.com/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -22,14 +22,14 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <link rel="stylesheet" href="/assets/site.css?v=3">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "DemRender",
     "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "Windows 10, Windows 11",
+    "operatingSystem": "Windows 10, Windows 11, Linux",
     "description": "Music visualizer studio: audio-reactive visualizers, a full creator and video export up to 4K.",
     "url": "https://demrender.com/",
     "image": "https://demrender.com/assets/img/og.jpg",
@@ -63,21 +63,21 @@
     <section class="hero">
       <div class="wrap hero-in">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="dot"></span>Music visualizer studio for Windows · Free</p>
+          <p class="eyebrow"><span class="dot"></span>Music visualizer studio for Windows &amp; Linux · Free</p>
           <h1>Turn your song into a&nbsp;<span class="grad">music video.</span></h1>
           <p class="lead">Pick one of 121 audio-reactive visualizers, drop in your track and cover, and export a video that moves with every beat — widescreen,
             vertical or square, up to 4K. No account, no watermark, no upload.</p>
           <div class="cta">
             <a class="btn btn-primary btn-lg dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
-              Download for Windows
+              <span data-dl-label>Download for Windows</span>
             </a>
             <a class="btn btn-ghost btn-lg" href="#visualizers">Watch the visualizers</a>
           </div>
           <p class="dl-info" data-info>Free · Windows 10 and 11 (64-bit)</p>
-          <p class="dl-alt" data-linux hidden>
+          <p class="dl-alt" data-alt hidden>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
-            Also for <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl-linux>Linux (AppImage)</a><span data-linux-size></span>
+            Also for <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl-alt>Linux (AppImage)</a><span data-alt-size></span>
           </p>
         </div>
         <div class="hero-stage">
@@ -223,16 +223,18 @@
             <p>Yes. The videos are yours, and DemRender's visualizers and catalog pictures are free to use in them, including on monetised channels. You need the rights
               to the music and pictures you bring yourself — your own tracks, or ones you have a licence for.</p></details>
           <details><summary>What do I need to run it?</summary>
-            <p>Windows 10 or 11 (64-bit), 8 GB of memory and a graphics card from the last few years with up-to-date drivers. For 4K and 60 fps a dedicated graphics card
-              is recommended. About 450 MB of disk space.</p></details>
+            <p>Windows 10 or 11 (64-bit), or a 64-bit Linux from the last few years (for example Ubuntu 22.04, Linux Mint 21 or newer); 8 GB of memory and a
+              graphics card with up-to-date drivers. For 4K and 60 fps a dedicated graphics card is recommended. About 450 MB of disk space.</p></details>
           <details><summary>Windows says “Windows protected your PC” when I run the installer.</summary>
             <p>DemRender is new and its installer does not carry a code-signing certificate yet, so Windows SmartScreen may warn about it. Click <b>More info</b> and then
               <b>Run anyway</b>. Download DemRender only from this page or from our <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases">GitHub releases</a>.</p></details>
-          <details><summary>Is there a version for Mac or Linux?</summary>
-            <p>Not yet — DemRender runs on Windows for now.</p></details>
+          <details><summary>Does it run on Linux? And on Mac?</summary>
+            <p>Yes, on Linux: download the <b>AppImage</b>, allow it to run (right-click → Properties → Permissions → <i>Allow executing file as program</i>,
+              or <code>chmod +x DemRender-*.AppImage</code>) and open it — nothing to install, and it updates itself just like the Windows version.
+              A Mac version is not available yet.</p></details>
           <details><summary>How do updates work?</summary>
-            <p>DemRender looks for a new version when it starts and downloads it in the background. When it's ready, a <b>Restart to update</b> button appears — or it simply
-              installs the next time you close the app.</p></details>
+            <p>DemRender looks for a new version when it starts and downloads it in the background, on Windows and on Linux. When it's ready, a <b>Restart to update</b>
+              button appears — or it simply installs the next time you close the app.</p></details>
           <details><summary>Is my music uploaded anywhere?</summary>
             <p>No. Everything happens on your computer: your songs, pictures and projects never leave it. The only thing DemRender asks the internet is whether a new
               version exists.</p></details>
@@ -278,6 +280,6 @@
     </div>
   </dialog>
 
-  <script src="/assets/site.js?v=2"></script>
+  <script src="/assets/site.js?v=3"></script>
 </body>
 </html>
