@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>DemRender — turn your song into a music video</title>
   <meta name="description" content="DemRender is a free music visualizer studio for Windows and Linux: 121 audio-reactive visualizers, a full creator and fast export up to 4K — vertical, square or widescreen. No account, no watermark.">
@@ -22,7 +22,8 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=3">
+  <link rel="stylesheet" href="/assets/site.css?v=7">
+  <script src="/assets/early.js?v=7"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,6 +41,8 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="top" id="top">
     <div class="wrap top-in">
@@ -60,15 +63,15 @@
 
   <main id="main">
     <!-- ================================================================ hero -->
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="wrap hero-in">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="dot"></span>Music visualizer studio for&nbsp;Windows&nbsp;&amp;&nbsp;Linux&nbsp;·&nbsp;Free</p>
-          <h1>Turn your song into a&nbsp;<span class="grad">music video.</span></h1>
-          <p class="lead">Pick one of 121 audio-reactive visualizers, drop in your track and cover, and export a video that moves with every beat — widescreen,
+          <p class="eyebrow" data-reveal><span class="dot"></span>Music visualizer studio for&nbsp;Windows&nbsp;&amp;&nbsp;Linux&nbsp;·&nbsp;Free</p>
+          <h1 data-reveal>Turn your song into a&nbsp;<span class="grad">music video.</span></h1>
+          <p class="lead" data-reveal>Pick one of 121 audio-reactive visualizers, drop in your track and cover, and export a video that moves with every beat — widescreen,
             vertical or square, up to 4K. No account, no watermark, no upload.</p>
-          <div class="cta">
-            <a class="btn btn-primary btn-lg dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl>
+          <div class="cta" data-reveal>
+            <a data-magnetic class="btn btn-primary btn-lg dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
               <span data-dl-label>Download for Windows</span>
             </a>
@@ -80,7 +83,7 @@
             Also for <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl-alt>Linux (AppImage)</a><span data-alt-size></span>
           </p>
         </div>
-        <div class="hero-stage">
+        <div class="hero-stage" data-reveal>
           <div class="player" id="heroPlayer">
             <video id="heroVideo" src="/assets/media/hero-trap.mp4" poster="/assets/media/hero-trap.jpg" muted loop playsinline preload="auto" aria-label="Flame Wings visualizer on an original trap beat, exported from DemRender"></video>
             <button class="sound" id="heroSound" type="button" aria-pressed="false" title="Sound on">
@@ -90,24 +93,66 @@
             </button>
             <span class="tag">Flame Wings · made in DemRender</span>
           </div>
+          <canvas class="eq" id="heroEq" aria-hidden="true"></canvas>
         </div>
       </div>
-      <ul class="wrap stats" aria-label="DemRender at a glance">
-        <li><b>121</b><span>visualizers</span></li>
+      <ul class="wrap stats" aria-label="DemRender at a glance" data-reveal>
+        <li><b data-count="121">121</b><span>visualizers</span></li>
         <li><b>4K · 60 fps</b><span>export</span></li>
         <li><b>16:9 · 9:16 · 1:1 · 4:5</b><span>every platform</span></li>
         <li><b>Real time</b><span>GPU export speed</span></li>
         <li><b>Offline</b><span>your music stays with you</span></li>
       </ul>
+      <div class="marquee" aria-label="A few of the visualizers">
+        <div class="mq-track" id="mqTrack">
+            <button class="mq-item" type="button" data-clip="pro-neon-halo" data-name="Neon Halo"><img src="/assets/media/pro-neon-halo.webp" alt="" width="320" height="180" loading="lazy"><span>Neon Halo</span></button>
+            <button class="mq-item" type="button" data-clip="plasma-tendrils" data-name="Plasma Tendrils"><img src="/assets/media/plasma-tendrils.webp" alt="" width="320" height="180" loading="lazy"><span>Plasma Tendrils</span></button>
+            <button class="mq-item" type="button" data-clip="solar-flares" data-name="Solar Flares"><img src="/assets/media/solar-flares.webp" alt="" width="320" height="180" loading="lazy"><span>Solar Flares</span></button>
+            <button class="mq-item" type="button" data-clip="teal-ears" data-name="Teal Ears"><img src="/assets/media/teal-ears.webp" alt="" width="320" height="180" loading="lazy"><span>Teal Ears</span></button>
+            <button class="mq-item" type="button" data-clip="halo-crown" data-name="Halo Crown"><img src="/assets/media/halo-crown.webp" alt="" width="320" height="180" loading="lazy"><span>Halo Crown</span></button>
+            <button class="mq-item" type="button" data-clip="lightning-halo" data-name="Lightning Halo"><img src="/assets/media/lightning-halo.webp" alt="" width="320" height="180" loading="lazy"><span>Lightning Halo</span></button>
+            <button class="mq-item" type="button" data-clip="supernova" data-name="Supernova"><img src="/assets/media/supernova.webp" alt="" width="320" height="180" loading="lazy"><span>Supernova</span></button>
+            <button class="mq-item" type="button" data-clip="vital-signs" data-name="Vital Signs"><img src="/assets/media/vital-signs.webp" alt="" width="320" height="180" loading="lazy"><span>Vital Signs</span></button>
+            <button class="mq-item" type="button" data-clip="double-helix" data-name="Double Helix"><img src="/assets/media/double-helix.webp" alt="" width="320" height="180" loading="lazy"><span>Double Helix</span></button>
+            <button class="mq-item" type="button" data-clip="flame-wings" data-name="Flame Wings"><img src="/assets/media/flame-wings.webp" alt="" width="320" height="180" loading="lazy"><span>Flame Wings</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ the gates: open on the scroll -->
+    <section class="gate" id="gate" aria-label="Your music, made visible">
+      <div class="gate-sticky">
+        <div class="gate-inside">
+          <video class="gate-video" src="/assets/media/gate-neon-halo.mp4" poster="/assets/media/gate-neon-halo.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video>
+          <div class="gate-copy">
+            <p class="eyebrow">Made in DemRender</p>
+            <h2>Your music, <span class="grad">made visible.</span></h2>
+            <p>Every visualizer in DemRender moves with the bass, the beat and the voice — like this one.</p>
+          </div>
+        </div>
+        <div class="gate-door gate-a" aria-hidden="true">
+          <div class="gate-face">
+            <img src="/assets/img/logo-full.png" alt="" width="900" height="432" class="gate-logo">
+            <p class="gate-hint"><span class="mouse"><i></i></span>Scroll to open</p>
+          </div>
+        </div>
+        <div class="gate-door gate-b" aria-hidden="true">
+          <div class="gate-face">
+            <img src="/assets/img/logo-full.png" alt="" width="900" height="432" class="gate-logo">
+            <p class="gate-hint"><span class="mouse"><i></i></span>Scroll to open</p>
+          </div>
+        </div>
+        <div class="gate-seam" aria-hidden="true"></div>
+      </div>
     </section>
 
     <!-- ========================================================== gallery -->
     <section class="section" id="visualizers">
       <div class="wrap">
-        <p class="eyebrow">Made in DemRender</p>
-        <h2>Every frame driven by the music.</h2>
-        <p class="sub">These clips were exported straight from DemRender, on its own demo tracks. Point at one to see it move — click for sound.</p>
-        <div class="gallery" id="gallery">
+        <p class="eyebrow" data-reveal>Made in DemRender</p>
+        <h2 data-reveal>Every frame driven by <span class="grad">the music.</span></h2>
+        <p class="sub" data-reveal>These clips were exported straight from DemRender, on its own demo tracks. Point at one to see it move — click for sound.</p>
+        <div class="gallery" id="gallery" data-deal>
           <button class="clip" data-clip="pro-neon-halo" data-name="Neon Halo" data-family="Featured"></button>
           <button class="clip" data-clip="plasma-tendrils" data-name="Plasma Tendrils" data-family="Burst"></button>
           <button class="clip" data-clip="solar-flares" data-name="Solar Flares" data-family="Burst"></button>
@@ -118,7 +163,7 @@
           <button class="clip" data-clip="vital-signs" data-name="Vital Signs" data-family="Worlds"></button>
           <button class="clip" data-clip="double-helix" data-name="Double Helix" data-family="Worlds"></button>
         </div>
-        <p class="more">…and 112 more, from neon line art to cinematic GPU scenes. Every one of them can be changed down to the last setting.</p>
+        <p class="more" data-reveal>…and 112 more, from neon line art to cinematic GPU scenes. Every one of them can be changed down to the last setting.</p>
       </div>
     </section>
 
@@ -126,7 +171,7 @@
     <section class="section" id="features">
       <div class="wrap">
         <div class="feature">
-          <div class="feature-copy">
+          <div class="feature-copy" data-reveal>
             <p class="eyebrow">The library</p>
             <h2>121 visualizers. Ten families.</h2>
             <p>Effects that erupt out of your cover, neon halo shapes, spectrum blobs in the style of the big music channels, line-art worlds and cinematic
@@ -137,11 +182,11 @@
               <li>Nothing moves in silence: the effects grow out of the sound</li>
             </ul>
           </div>
-          <figure class="shot"><img src="/assets/shots/app-library.webp" width="2400" height="1328" loading="lazy" alt="The DemRender visualizer library, showing the Burst family"></figure>
+          <figure class="shot" data-tilt><img src="/assets/shots/app-library.webp" width="2400" height="1328" loading="lazy" alt="The DemRender visualizer library, showing the Burst family"></figure>
         </div>
 
         <div class="feature flip">
-          <div class="feature-copy">
+          <div class="feature-copy" data-reveal>
             <p class="eyebrow">The creator</p>
             <h2>A full studio underneath.</h2>
             <p>Every visualizer is built from layers you can open and change: GPU scenes, spectrum and waveforms, particles, shapes, your cover and animated text.
@@ -154,11 +199,11 @@
               <li>Full undo history, autosave and crash recovery</li>
             </ul>
           </div>
-          <figure class="shot"><img src="/assets/shots/app-creator-scene.webp" width="2400" height="1328" loading="lazy" alt="The DemRender creator with the Neon Halo visualizer and its settings"></figure>
+          <figure class="shot" data-tilt><img src="/assets/shots/app-creator-scene.webp" width="2400" height="1328" loading="lazy" alt="The DemRender creator with the Neon Halo visualizer and its settings"></figure>
         </div>
 
         <div class="feature">
-          <div class="feature-copy">
+          <div class="feature-copy" data-reveal>
             <p class="eyebrow">Export</p>
             <h2>Export fast. Post everywhere.</h2>
             <p>MP4 goes straight from the graphics card to the video encoder — on a recent PC a 1080p60 song exports about as fast as it plays. Choose the shape
@@ -169,7 +214,7 @@
               <li>Keep working in another tab while it renders — a chime tells you when it's done</li>
             </ul>
           </div>
-          <div class="export-visual">
+          <div class="export-visual" data-tilt>
             <figure class="shot"><img src="/assets/shots/app-export.webp" width="2400" height="1328" loading="lazy" alt="The DemRender export window"></figure>
             <div class="phone" aria-hidden="true">
               <video src="/assets/media/vertical-flame-wings.mp4" poster="/assets/media/vertical-flame-wings.jpg" muted loop playsinline preload="none" data-auto></video>
@@ -182,9 +227,10 @@
     <!-- ===================================================== how it works -->
     <section class="section" id="how">
       <div class="wrap">
-        <p class="eyebrow">How it works</p>
-        <h2>From track to video in three steps.</h2>
-        <ol class="steps">
+        <p class="eyebrow" data-reveal>How it works</p>
+        <h2 data-reveal>From track to video in three steps.</h2>
+        <ol class="steps" id="steps" data-stagger>
+          <li class="steps-line" aria-hidden="true"><i></i></li>
           <li><span class="n">1</span><h3>Pick a look</h3><p>Browse the library and preview any visualizer with your song.</p></li>
           <li><span class="n">2</span><h3>Make it yours</h3><p>Add your cover, title and colours. Change as little or as much as you like.</p></li>
           <li><span class="n">3</span><h3>Export and post</h3><p>Choose the format for your platform and render. Your video is ready to upload.</p></li>
@@ -192,10 +238,53 @@
       </div>
     </section>
 
+    <!-- ========================================================== formats -->
+    <section class="section morph-section" id="formats">
+      <div class="morph-sticky">
+        <div class="wrap morph-in">
+          <div class="morph-copy">
+            <p class="eyebrow">Every shape</p>
+            <h2>One look. <span class="grad">Every platform.</span></h2>
+            <p class="sub">Pick the shape and DemRender re-arranges the visualizer, the cover and the text for it. These are real frames of the same project.</p>
+            <ol class="morph-list">
+              <li data-i="0" class="on"><b>16:9</b><span>YouTube</span></li>
+              <li data-i="1"><b>9:16</b><span>Shorts · Reels · TikTok</span></li>
+              <li data-i="2"><b>1:1</b><span>Square posts</span></li>
+              <li data-i="3"><b>4:5</b><span>Feed posts</span></li>
+            </ol>
+          </div>
+          <div class="morph-stage">
+            <div class="morph-frame" id="morphFrame">
+              <img src="/assets/formats/landscape.webp" width="900" height="506" alt="The visualizer in 16:9" data-i="0" class="on">
+              <img src="/assets/formats/vertical.webp" width="506" height="900" alt="The visualizer in 9:16" data-i="1">
+              <img src="/assets/formats/square.webp" width="900" height="900" alt="The visualizer in 1:1" data-i="2">
+              <img src="/assets/formats/portrait.webp" width="720" height="900" alt="The visualizer in 4:5" data-i="3">
+              <span class="morph-badge" id="morphBadge">16:9</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap rm-only">
+        <div class="formats" data-stagger>
+          <figure class="fmt" style="--ar: 16 / 9"><img src="/assets/formats/landscape.webp" width="900" height="506" loading="lazy" alt="The visualizer in 16:9"><figcaption><b>16:9</b>YouTube</figcaption></figure>
+          <figure class="fmt" style="--ar: 9 / 16"><img src="/assets/formats/vertical.webp" width="506" height="900" loading="lazy" alt="The visualizer in 9:16"><figcaption><b>9:16</b>Shorts · Reels · TikTok</figcaption></figure>
+          <figure class="fmt" style="--ar: 1 / 1"><img src="/assets/formats/square.webp" width="900" height="900" loading="lazy" alt="The visualizer in 1:1"><figcaption><b>1:1</b>Square posts</figcaption></figure>
+          <figure class="fmt" style="--ar: 4 / 5"><img src="/assets/formats/portrait.webp" width="720" height="900" loading="lazy" alt="The visualizer in 4:5"><figcaption><b>4:5</b>Feed posts</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== a sentence that lights up -->
+    <section class="statement-section" id="statement">
+      <div class="statement-sticky">
+        <p class="statement wrap" data-words><em>Free</em> to use. Your videos are <em>yours</em> to publish and monetise anywhere. No account. No watermark. No upload — your songs <em>never leave</em> your computer.</p>
+      </div>
+    </section>
+
     <!-- ============================================================= free -->
     <section class="section">
       <div class="wrap">
-        <div class="free">
+        <div class="free" data-reveal>
           <div>
             <p class="eyebrow">Free, and yours</p>
             <h2>Your videos belong to you.</h2>
@@ -209,12 +298,25 @@
       </div>
     </section>
 
+    <!-- ===================================================== download band -->
+    <section class="band" id="get">
+      <canvas class="band-viz" id="bandViz" aria-hidden="true"></canvas>
+      <div class="wrap band-in">
+        <h2 data-reveal>Your next video <span class="grad">starts here.</span></h2>
+        <p data-reveal>Free for Windows and Linux. No account, no watermark — just your song and a visualizer.</p>
+        <div class="cta center" data-reveal>
+          <a data-magnetic class="btn btn-primary btn-lg dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span data-dl-label>Download for Windows</span></a>
+          <a class="btn btn-ghost btn-lg" href="#visualizers">See the visualizers</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================================================== faq -->
     <section class="section" id="faq">
       <div class="wrap narrow">
-        <p class="eyebrow">FAQ</p>
-        <h2>Questions and answers.</h2>
-        <div class="faq">
+        <p class="eyebrow" data-reveal>FAQ</p>
+        <h2 data-reveal>Questions and answers.</h2>
+        <div class="faq" data-stagger>
           <details><summary>Is DemRender really free?</summary>
             <p>Yes. The whole app — every visualizer, the creator and export up to 4K — is free. We may add an optional Pro edition later; what is free today stays free.</p></details>
           <details><summary>Is there a watermark?</summary>
@@ -246,7 +348,7 @@
     <!-- ========================================================== contact -->
     <section class="section" id="contact">
       <div class="wrap narrow">
-        <div class="contact">
+        <div class="contact" data-reveal>
           <h2>Questions, ideas, a bug?</h2>
           <p>Write to us — we read everything, and ideas for new visualizers are very welcome.</p>
           <div class="cta center">
@@ -271,6 +373,7 @@
         <a href="https://dem-work.com">More apps by Dandem</a>
       </nav>
     </div>
+    <div class="foot-mark" id="footMark" aria-hidden="true"><span>DemRender</span></div>
   </footer>
 
   <!-- the player for a clip with sound -->
@@ -281,6 +384,6 @@
     </div>
   </dialog>
 
-  <script src="/assets/site.js?v=3"></script>
+  <script src="/assets/site.js?v=7"></script>
 </body>
 </html>
