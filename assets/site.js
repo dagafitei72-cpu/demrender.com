@@ -12,6 +12,13 @@
     .then(function (rel) {
       if (!rel || !rel.assets) return;
       var setup = rel.assets.filter(function (a) { return /^DemRender-Setup-.*\.exe$/i.test(a.name); })[0];
+      // Linux: shown only once a release carries an AppImage
+      var appimg = rel.assets.filter(function (a) { return /^DemRender-.*\.AppImage$/i.test(a.name); })[0];
+      if (appimg) {
+        document.querySelectorAll('[data-dl-linux]').forEach(function (a) { a.href = appimg.browser_download_url; });
+        document.querySelectorAll('[data-linux-size]').forEach(function (s) { s.textContent = ' · ' + mb(appimg.size); });
+        document.querySelectorAll('[data-linux]').forEach(function (p) { p.hidden = false; });
+      }
       if (!setup) return;
       document.querySelectorAll('[data-dl]').forEach(function (a) { a.href = setup.browser_download_url; });
       var date = new Date(rel.published_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });

@@ -104,6 +104,10 @@ h1 { font-size: clamp(38px, 5.6vw, 66px); font-weight: 850; letter-spacing: -.03
 .cta.center { justify-content: center; }
 .dl-info { margin-top: 14px; font-size: 13.5px; color: var(--muted); min-height: 1.6em; }
 .dl-info b { color: var(--text-2); font-weight: 600; }
+.dl-alt { margin-top: 8px; display: flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--muted); }
+.dl-alt[hidden] { display: none; }
+.dl-alt svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.dl-alt a { font-weight: 600; }
 
 .hero-stage { position: relative; }
 .hero-stage::before {
