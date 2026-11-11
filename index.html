@@ -6,13 +6,13 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>DemRender — turn your song into a music video</title>
-  <meta name="description" content="DemRender is a free music visualizer studio for Windows and Linux: 172 audio-reactive visualizers, a full creator and fast export up to 4K — vertical, square or widescreen. No account, no watermark.">
+  <meta name="description" content="DemRender is a free music visualizer studio for Windows and Linux: 172 audio-reactive visualizers, lyrics written and timed from your song, a full creator and fast export up to 4K — vertical, square or widescreen. No account, no watermark.">
   <link rel="canonical" href="https://demrender.com/">
   <meta name="theme-color" content="#06090f">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DemRender">
   <meta property="og:title" content="DemRender — turn your song into a music video">
-  <meta property="og:description" content="172 audio-reactive visualizers, a full creator and fast export up to 4K. Free for Windows and Linux.">
+  <meta property="og:description" content="172 audio-reactive visualizers, lyrics from your song, a full creator and fast export up to 4K. Free for Windows and Linux.">
   <meta property="og:url" content="https://demrender.com/">
   <meta property="og:image" content="https://demrender.com/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=7">
+  <link rel="stylesheet" href="/assets/site.css?v=8">
   <script src="/assets/early.js?v=7"></script>
   <script type="application/ld+json">
   {
@@ -31,7 +31,7 @@
     "name": "DemRender",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Windows 10, Windows 11, Linux",
-    "description": "Music visualizer studio: audio-reactive visualizers, a full creator and video export up to 4K.",
+    "description": "Music visualizer studio: audio-reactive visualizers, lyrics written and timed from the song, a full creator and video export up to 4K.",
     "url": "https://demrender.com/",
     "image": "https://demrender.com/assets/img/og.jpg",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
@@ -170,6 +170,22 @@
     <!-- ========================================================= features -->
     <section class="section" id="features">
       <div class="wrap">
+        <div class="feature flip">
+          <div class="feature-copy" data-reveal>
+            <p class="eyebrow">New · Lyrics</p>
+            <h2>Lyrics, straight from the song.</h2>
+            <p>DemRender listens to your song — right on your computer — and writes its lyrics down, every word at the moment it is sung.
+              Check them in a list where every line plays, fix anything in a click, and watch them light up on screen word by word.</p>
+            <ul class="ticks">
+              <li>Every word timed to the singing — karaoke on screen in one click</li>
+              <li>Lines it only imagined in a drop or an instrumental are left out for you</li>
+              <li>Have the lyrics already? Paste them: your words stay exactly as you wrote them</li>
+              <li>Nothing is uploaded: your song never leaves your computer</li>
+            </ul>
+          </div>
+          <figure class="shot" data-tilt><video src="/assets/media/lyrics-karaoke.mp4" poster="/assets/media/lyrics-karaoke.jpg" width="1280" height="720" muted loop playsinline preload="none" data-auto aria-label="Lyrics lighting up word by word under the Neon Halo visualizer"></video></figure>
+        </div>
+
         <div class="feature">
           <div class="feature-copy" data-reveal>
             <p class="eyebrow">The library</p>
@@ -197,7 +213,8 @@
               <li>Edit the song: trim it, fade in and out, louder or softer, a five-band equaliser — the video gets it too</li>
               <li>Loop it and slow it down to check every beat</li>
               <li>Effects on the beat: zoom, shake, RGB split, glitch, ripple</li>
-              <li>Animated titles and lyrics you sync by tapping along</li>
+              <li>Animated titles, and lyrics written and timed for you from the song</li>
+              <li>Remix: a new look in one click — and back with Ctrl+Z</li>
               <li>An image catalog of original covers and backdrops, free to publish</li>
               <li>Full undo history, autosave and crash recovery</li>
             </ul>
@@ -213,6 +230,7 @@
               for each platform and the visualizer, the cover and the text rearrange themselves.</p>
             <ul class="ticks">
               <li>16:9 for YouTube · 9:16 for Shorts, Reels and TikTok · 1:1 · 4:5</li>
+              <li>The best 15, 30 or 60 seconds of the song, found for you — every shape, or every song of an album, in one go</li>
               <li>Up to 4K at 60 fps · MP4, WebM, or ProRes for editing</li>
               <li>Keep working in another tab while it renders — a chime tells you when it's done</li>
             </ul>
@@ -329,7 +347,7 @@
               to the music and pictures you bring yourself — your own tracks, or ones you have a licence for.</p></details>
           <details><summary>What do I need to run it?</summary>
             <p>Windows 10 or 11 (64-bit), or a 64-bit Linux from the last few years (for example Ubuntu 22.04, Linux Mint 21 or newer); 8 GB of memory and a
-              graphics card with up-to-date drivers. For 4K and 60 fps a dedicated graphics card is recommended. About 450 MB of disk space.</p></details>
+              graphics card with up-to-date drivers. For 4K and 60 fps a dedicated graphics card is recommended. About 500 MB of disk space (and 550 MB more for the lyrics model, if you use it).</p></details>
           <details><summary>Windows says “Windows protected your PC” when I run the installer.</summary>
             <p>DemRender is new and its installer does not carry a code-signing certificate yet, so Windows SmartScreen may warn about it. Click <b>More info</b> and then
               <b>Run anyway</b>. Download DemRender only from this page or from our <a href="https://github.com/dagafitei72-cpu/demrender-releases/releases">GitHub releases</a>.</p></details>
@@ -342,8 +360,13 @@
             <p>DemRender looks for a new version when it starts and downloads it in the background, on Windows and on Linux. When it's ready, a <b>Restart to update</b>
               button appears — or it simply installs the next time you close the app.</p></details>
           <details><summary>Is my music uploaded anywhere?</summary>
-            <p>No. Everything happens on your computer: your songs, pictures and projects never leave it. The only thing DemRender asks the internet is whether a new
-              version exists.</p></details>
+            <p>No. Everything happens on your computer: your songs, pictures and projects never leave it — even when DemRender writes the lyrics of a song, it
+              listens to it right there. The only things it asks the internet for are a new version, and, the first time you get lyrics from a song, its
+              listening model (a one-time download).</p></details>
+          <details><summary>Can it write the lyrics of my song?</summary>
+            <p>Yes, in the Windows app. Add a <b>Lyrics</b> layer and press <b>Get the lyrics from the song</b>: DemRender writes them down with the moment every word is sung, and
+              you check them before they go on screen. Clear vocals come out best; if you have the lyrics, paste them first and only the timing comes from the
+              song. A four-minute song takes a couple of minutes. The first time, DemRender downloads its listening model (about 550 MB, once).</p></details>
         </div>
       </div>
     </section>
@@ -387,6 +410,6 @@
     </div>
   </dialog>
 
-  <script src="/assets/site.js?v=7"></script>
+  <script src="/assets/site.js?v=8"></script>
 </body>
 </html>

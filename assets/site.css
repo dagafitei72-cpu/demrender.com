@@ -198,6 +198,7 @@ h1 { font-size: clamp(38px, 5.6vw, 66px); font-weight: 850; letter-spacing: -.03
   box-shadow: 0 30px 80px rgba(0, 0, 0, .55), 0 0 50px rgba(47, 155, 221, .12);
 }
 .shot img { width: 100%; height: auto; }
+.shot video { width: 100%; height: auto; display: block; background: #000; }
 .export-visual { position: relative; padding-right: clamp(40px, 9%, 110px); }
 .phone {
   position: absolute; right: 0; bottom: -28px; width: clamp(110px, 23%, 200px); aspect-ratio: 9 / 16; border-radius: 22px; overflow: hidden;
