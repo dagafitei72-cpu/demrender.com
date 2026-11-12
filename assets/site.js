@@ -640,3 +640,22 @@
     }, { passive: true });
   }
 })();
+
+/* pricing: monthly / yearly (v9) */
+(function () {
+  var g = document.querySelector('.period');
+  var grid = document.querySelector('.plans');
+  if (!g || !grid) return;
+  g.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-period]');
+    if (!b || b.classList.contains('on')) return;
+    var y = b.getAttribute('data-period') === 'year';
+    g.classList.toggle('year', y);
+    g.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    grid.classList.add('swap');
+    setTimeout(function () {
+      grid.querySelectorAll('[data-m]').forEach(function (el) { el.textContent = el.getAttribute(y ? 'data-y' : 'data-m'); });
+      grid.classList.remove('swap');
+    }, 200);
+  });
+})();
