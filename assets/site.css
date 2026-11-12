@@ -668,3 +668,8 @@ h2[data-split].in .wi { transform: none; }
 .plan-price b, .plan-price span, .plan-sub { transition: opacity .2s; }
 .plans.swap .plan-price b, .plans.swap .plan-price span, .plans.swap .plan-sub { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .plan.popular::before { animation: none; } }
+
+/* a feature that comes with a plan (Creator, Pro, Studio) */
+.plus { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px; vertical-align: 2px; white-space: nowrap;
+  font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
+  color: #fff; background: linear-gradient(135deg, #6a4cff, #2f9bdd); }
