@@ -1,5 +1,5 @@
 /* demrender.com — download link from the latest GitHub release, the hero sound toggle,
- * the clip gallery (moves on hover, plays with sound on click). No cookies, no tracking. */
+ * the clip gallery (moves on hover, plays with sound on click). No cookies; visits are counted anonymously (count.js). */
 (function () {
   'use strict';
   var REPO = 'dagafitei72-cpu/demrender-releases';

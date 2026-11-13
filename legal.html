@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://demrender-api.demrender-server.workers.dev; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Licence &amp; privacy — DemRender</title>
   <meta name="description" content="DemRender licence agreement, privacy and open-source notices.">
   <link rel="canonical" href="https://demrender.com/legal.html">
@@ -125,8 +125,12 @@ Copyright (c) 2026 Dandem. All rights reserved.
         contact@demrender.com.</p>
       <p><b>Updates.</b> To find updates, the app asks GitHub whether a newer version has been published — GitHub sees that request like any visit to a web page
         (your IP address), and nothing else is sent.</p>
-      <p><b>This website.</b> demrender.com is hosted on GitHub Pages and uses no cookies, no analytics and no third-party scripts. To show the newest version on the
-        Download button, your browser asks GitHub's public API for the latest release. GitHub's own privacy statement covers both.</p>
+      <p><b>This website.</b> demrender.com is hosted on GitHub Pages and uses no cookies and no third-party scripts. To show the newest version on the
+        Download button, your browser asks GitHub's public API for the latest release; GitHub's own privacy statement covers that and the hosting.
+        To know how many people visit, each page sends DemRender's own server one anonymous count: the page, the name of the site you came from,
+        whether it is a phone or a computer, and the country worked out from the connection — and a Download click sends one more. Your IP address
+        is not stored, nothing is saved in your browser, and nothing identifies you: only daily totals are kept. If your browser asks not to be
+        tracked (Do Not Track or Global Privacy Control), it is not counted at all.</p>
       <p><b>Email.</b> If you write to contact@demrender.com, we use your message and address only to answer you.</p>
 
       <h2 id="open-source">Open-source notices</h2>
@@ -157,5 +161,6 @@ Copyright (c) 2026 Dandem. All rights reserved.
       </nav>
     </div>
   </footer>
+  <script src="/assets/count.js?v=1" defer></script>
 </body>
 </html>
