@@ -74,6 +74,19 @@
     });
   }
 
+  /* ---------------------------------------- what's new: the God mode showcase sound */
+  var wnBtn = document.querySelector('.wn-sound');
+  var wnVid = document.querySelector('.wn-video video');
+  if (wnBtn && wnVid) {
+    wnBtn.addEventListener('click', function () {
+      var on = wnBtn.getAttribute('aria-pressed') !== 'true';
+      wnVid.muted = !on;
+      wnBtn.setAttribute('aria-pressed', String(on));
+      wnBtn.setAttribute('aria-label', on ? 'Mute' : 'Play with sound');
+      if (on) { wnVid.currentTime = 0; wnVid.play().catch(function () {}); }
+    });
+  }
+
   /* --------------------------------------------- gallery: posters, hover, play */
   var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
   var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;

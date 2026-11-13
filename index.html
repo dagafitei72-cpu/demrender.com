@@ -22,7 +22,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=10">
+  <link rel="stylesheet" href="/assets/site.css?v=11">
   <script src="/assets/early.js?v=7"></script>
   <script type="application/ld+json">
   {
@@ -56,6 +56,7 @@
         <img src="/assets/img/wordmark.png" alt="DemRender" width="320" height="56" class="brand-word">
       </a>
       <nav class="nav" aria-label="Main">
+        <a href="#whatsnew" class="nav-new">What's new</a>
         <a href="#visualizers">Visualizers</a>
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
@@ -152,6 +153,32 @@
       </div>
     </section>
 
+    <!-- ===================================================== what's new: God mode -->
+    <section class="section whatsnew" id="whatsnew" aria-label="What's new in DemRender">
+      <div class="wrap">
+        <p class="eyebrow new-badge" data-reveal><span class="pulse-dot"></span>New in 1.1.6 · God mode at drop</p>
+        <div class="wn-grid">
+          <div class="wn-copy" data-reveal>
+            <h2>Your visualizer stays calm… <span class="grad">then the drop hits.</span></h2>
+            <p class="sub">Flip one switch and every visualizer erupts on the beat drop — bigger, brighter, more energy, with a punch of zoom, shake and light — then eases back. One switch, all 193 visualizers, each in its own style.</p>
+            <ul class="wn-steps" data-stagger>
+              <li><span class="wn-n">1</span><div><b>Turn it on</b><span>Project settings → God mode at drop. It's a plan feature.</span></div></li>
+              <li><span class="wn-n">2</span><div><b>DemRender finds the drops</b><span>The gold bands on the timeline. Drag, resize, add or remove them to place the eruption exactly where you want.</span></div></li>
+              <li><span class="wn-n">3</span><div><b>Dial the madness</b><span>Intensity, size, energy, light and screen impact — from a subtle lift to total chaos.</span></div></li>
+            </ul>
+            <a class="btn btn-primary dl-link" href="https://github.com/dagafitei72-cpu/demrender-releases/releases/latest" data-dl>Try it — download free</a>
+          </div>
+          <figure class="wn-video" data-reveal data-tilt>
+            <div class="wn-frame">
+              <video src="/assets/media/godmode.mp4" poster="/assets/media/godmode.jpg" width="1280" height="720" muted loop playsinline preload="none" data-auto aria-label="A visualizer erupting on the drop with God mode"></video>
+              <button class="wn-sound" type="button" aria-pressed="false" aria-label="Play with sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path class="wave" d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button>
+              <span class="wn-tag">God mode · ON</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ========================================================== gallery -->
     <section class="section" id="visualizers">
       <div class="wrap">
@@ -221,6 +248,7 @@
               <li>Edit the song: trim it, fade in and out, louder or softer — and a five-band equaliser <span class="plus" title="With a plan: Creator, Pro or Studio">Creator+</span> — the video gets it too</li>
               <li>Loop it and slow it down to check every beat</li>
               <li>Effects on the beat: zoom, shake, RGB split, glitch, ripple</li>
+              <li><b>God mode at drop</b>: every visualizer erupts on the beat drop, then eases back <span class="plus" title="With a plan: Creator, Pro or Studio">Creator+</span></li>
               <li>Animated titles, and lyrics written and timed for you from the song</li>
               <li>Remix: a new look in one click — and back with Ctrl+Z <span class="plus" title="With a plan: Creator, Pro or Studio">Creator+</span></li>
               <li>An image catalog of original covers and backdrops, free to publish</li>
@@ -395,6 +423,12 @@
               with a small DemRender mark in the corner. The plans — <b>Creator</b> (€4.99 a month, 10 renders), <b>Pro</b> (€9.99, 50 renders) and <b>Studio</b>
               (€24.99, 250 renders) — take the mark off and open 4K, 60 fps, ProRes, Remix, Rotation and the studio's finer controls (tagged CREATOR+ in the app).
               A visualizer from the library always keeps the look it was designed with, on Free too. Paid yearly, two months are free.</p></details>
+          <details><summary>What is “God mode at drop”?</summary>
+            <p>A plan feature. Your visualizers play calm through the song, then <b>erupt on every drop</b> — bigger, brighter, more energy, with a
+              punch of zoom, shake and light — and ease back as the drop settles. Every visualizer erupts in its own style; one switch lifts all of
+              them. DemRender finds the drops in your song by itself (the gold bands on the timeline), and you can drag, resize, add or remove them to
+              place the eruption exactly where you want. Intensity, size, energy, light and screen impact are all adjustable. On Free it is paused, and
+              your settings are kept for when you have a plan.</p></details>
           <details><summary>Is there a watermark?</summary>
             <p>On Free, a small DemRender logo in the top-right corner of the video — and, in the app's live previews, the logo with “Free plan” passes
               three times through each song. With a plan there is none, anywhere: your videos come out exactly as you made them.</p></details>
@@ -478,7 +512,7 @@
     </div>
   </dialog>
 
-  <script src="/assets/site.js?v=10"></script>
+  <script src="/assets/site.js?v=11"></script>
   <script src="/assets/count.js?v=1" defer></script>
 </body>
 </html>
