@@ -300,6 +300,7 @@
       ctx.clearRect(0, 0, w, h);
       var nb = beat.bands, n = Math.max(24, Math.floor(w / 11)), gap = 3;
       var bw = (w - gap * (n - 1)) / n;
+      if (!(bw > 0.5)) return;                                   // not laid out yet (or far too narrow): skip this frame
       var grad = ctx.createLinearGradient(0, 0, w, 0);
       grad.addColorStop(0, '#ff7a2a'); grad.addColorStop(0.5, '#ffd23f'); grad.addColorStop(1, '#3fb2ff');
       ctx.fillStyle = grad;
